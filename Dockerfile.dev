@@ -1,0 +1,20 @@
+# Base image.
+FROM node:20.15.1-alpine
+
+# Set language.
+ENV LANG C.UTF-8
+
+# Set working directory.
+WORKDIR /app
+
+# Copy package.json file.
+COPY /src/package.json .
+
+# Intall packages.
+RUN npm i
+
+# Copy src.
+COPY /src .
+
+# Start app.
+#CMD ["npm", "start"]
